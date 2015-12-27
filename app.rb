@@ -10,6 +10,7 @@ module Broker
       register Sinatra::Reloader
       disable :show_exceptions
       set :logging, Logger::DEBUG
+      DataMapper::Logger.new($stdout, :debug)
     end
 
     Dir['./models/*.rb'].each { |file| require file }

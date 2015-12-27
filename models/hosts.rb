@@ -1,5 +1,4 @@
 
-DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:hostsdb, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/hosts.db")
 
 class Host

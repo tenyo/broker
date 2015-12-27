@@ -6,16 +6,16 @@ describe 'Broker::Routes::Hosts' do
     @app ||= Broker::Routes::Hosts
   end
 
-  describe 'when GET /api/v1/hosts' do
-    before { get '/api/v1/hosts' }
+  describe 'when GET /v1/hosts' do
+    before { get '/v1/hosts' }
     subject { last_response }
     it 'status code 200' do
       expect(subject.status).to eq(200)
     end
   end
 
-  describe 'when POST /api/v1/hosts' do
-    before { post '/api/v1/hosts', {:name => "test" }.to_json, {'Content-Type' => 'application/json'} }
+  describe 'when POST /v1/hosts' do
+    before { post '/v1/hosts', {:name => "test" }.to_json, {'Content-Type' => 'application/json'} }
     subject { last_response }
     it 'status code 201' do
       expect(subject.status).to eq(201)

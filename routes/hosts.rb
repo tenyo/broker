@@ -7,7 +7,11 @@ module Broker
         register Sinatra::Namespace
       end
 
-      namespace '/api/v1/hosts' do
+      before do
+        content_type :json
+      end
+
+      namespace '/v1/hosts' do
 
         get '' do
           Host.all.to_json
@@ -23,6 +27,9 @@ module Broker
         
         post '' do
           body = JSON.parse request.body.read
+          if body['name'].nil?
+            halt 500, 'Name not specified!'
+          end
           t = Host.create(
             name:       body['name'],
             created_at: Time.now,
