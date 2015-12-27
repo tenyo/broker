@@ -13,6 +13,7 @@ group :development do
 end
 
 group :test do
-  gem 'rspec'
-  gem 'rack-test'
+  gem 'dm-sqlite-adapter', require: 'dm-sqlite-adapter'
+  gem 'rspec', require: 'rspec'
+  gem 'rack-test', require: 'rack/test'
 end
